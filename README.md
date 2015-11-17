@@ -16,3 +16,6 @@ So I found out rsync was a cool alternative to nfs, but Vagrant Up was like "hey
 * this [Vagrant LAMP](https://github.com/r8/vagrant-lamp)
 * Windows Whatever, the one with the tiles stuff. 
 * like five million things like Cygwin and Putty
+
+# Issues
+* [Cygwin + rsync clusterfuck](https://github.com/mitchellh/vagrant/issues/4073)
