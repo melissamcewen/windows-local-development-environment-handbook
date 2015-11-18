@@ -19,3 +19,4 @@ So I found out rsync was a cool alternative to nfs, but Vagrant Up was like "hey
 
 # Issues
 * [Cygwin + rsync clusterfuck](https://github.com/mitchellh/vagrant/issues/4073)
+* [Compass doesn't work correctly](http://stackoverflow.com/questions/20531194/compass-watch-does-not-regenerate-css-inside-vagrant)
