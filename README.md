@@ -9,7 +9,7 @@ I started out with this [Vagrant LAMP](https://github.com/r8/vagrant-lamp), acce
 
 Until the day I had some node.js and ruby stuff to do. All the sudden it was like every thing possible to go wrong went wrong. [This article](http://perrymitchell.net/article/npm-symlinks-through-vagrant-windows/) pretty much sums it up and recommends not using Windows (lol). I did some tricks and got things to work sometimes by doing crazy hacks like installing my node projects into my non-shared environment and putting them also in my shared folder but changing the execution path.  Blah blah, not very functional or sustainable. 
 
-So I found out rsync was a cool alternative to nfs, but Vagrant Up was like "hey we can't do this on normal Windows CMD because we don't know anything about anything." So I installed Cygwin and installed it at least five other times because I didn't realize I needed to select things like SSH. 
+So I found out rsync was a cool alternative to nfs, but Vagrant Up was like "hey we can't do this on normal Windows CMD because we don't know anything about anything." So in order to try that I installed Cygwin and installed it at least five other times because I didn't realize I needed to select things like SSH. Unfortunately it still didn't work very well. Right now I'm trying the newer [smb](https://docs.vagrantup.com/v2/synced-folders/smb.html) option and though it's a pain to mount, it's performing pretty fast and not breaking anything...at least that I know of yet.
 
 # Current thingamajig setup stuff
 
