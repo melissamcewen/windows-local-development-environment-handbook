@@ -26,6 +26,10 @@ Vagrant.configure("2") do |config|
     config.berkshelf.enabled = false
   end
 
+ # config.ssh.username = 'vagrant'
+ # config.ssh.password = 'vagrant'
+ # config.ssh.insert_key = 'false'
+
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine.
   # Forward MySql port on 33066, used for connecting admin-clients to localhost:33066
@@ -40,8 +44,12 @@ Vagrant.configure("2") do |config|
   config.vm.network :private_network, ip: "192.168.33.10"
 
   # Set share folder permissions to 777 so that apache can write files
+  # EXTREMELY SLOW, but node and ruby behave properly
+  #config.vm.synced_folder ".", "/vagrant", type: "smb", :mount_options => ["file_mode=0666,dir_mode=0777"]
+  # Just slow, really slow
   # config.vm.synced_folder ".", "/vagrant", mount_options: ['dmode=777','fmode=666']
-  config.vm.synced_folder ".", "/vagrant", type: "smb", :mount_options => ["file_mode=0666,dir_mode=0777"]
+  # Fast but a lot of things don't work properly
+  config.vm.synced_folder ".", "/vagrant", :nfs => { :mount_options => ["dmode=777","fmode=666"] }
 
   # Provider-specific configuration so you can fine-tune VirtualBox for Vagrant.
   # These expose provider-specific options.
