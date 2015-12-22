@@ -49,7 +49,8 @@ Vagrant.configure("2") do |config|
   # Just slow, really slow
   # config.vm.synced_folder ".", "/vagrant", mount_options: ['dmode=777','fmode=666']
   # Fast but a lot of things don't work properly
-  config.vm.synced_folder ".", "/vagrant", :nfs => { :mount_options => ["dmode=777","fmode=666"] }
+  # config.vm.synced_folder ".", "/vagrant", :nfs => { :mount_options => ["dmode=777","fmode=666"] }
+  config.vm.synced_folder ".", "/vagrant", type: "nfs"
 
   # Provider-specific configuration so you can fine-tune VirtualBox for Vagrant.
   # These expose provider-specific options.
