@@ -14,7 +14,7 @@ Using [wrk](https://github.com/wg/wrk) I've tested the various mount options
 
 | Mount Type | Latency Ave | Req/Sec Avg | Pros                | Cons                                                          |
 |------------|-------------|-------------|---------------------|---------------------------------------------------------------|
-| Virtualbox | 15.42ms     | 325.80      | Things usually work |                                                               |
+| Virtualbox | 15.42ms     | 325.80      | Things usually work | Occasional issues with Ruby                                   |
 | NFS        | 3.52ms      | 1.61K       |                     | Node and Ruby seem to have issues                             |
 | SMB        | 167.27ms    | 702.77      | Things usually work | Need to boot as admin from cmd, need to enter domain password |
 
@@ -28,3 +28,4 @@ Using [wrk](https://github.com/wg/wrk) I've tested the various mount options
 # Issues
 * [Cygwin + rsync clusterfuck](https://github.com/mitchellh/vagrant/issues/4073)
 * [Compass doesn't work correctly](http://stackoverflow.com/questions/20531194/compass-watch-does-not-regenerate-css-inside-vagrant)
+* [Errno::EPROTO: Protocol error - /vagrant/vendor /ruby](https://github.com/bundler/bundler/issues/3932) - with VB Mount
