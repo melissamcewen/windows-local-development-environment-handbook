@@ -9,6 +9,12 @@ I started out with this [Vagrant LAMP](https://github.com/r8/vagrant-lamp), acce
 
 Until the day I had some node.js and ruby stuff to do. All the sudden it was like every thing possible to go wrong went wrong. [This article](http://perrymitchell.net/article/npm-symlinks-through-vagrant-windows/) pretty much sums it up and recommends not using Windows (lol). I did some tricks and got things to work sometimes by doing crazy hacks like installing my node projects into my non-shared environment and putting them also in my shared folder but changing the execution path.  Blah blah, not very functional or sustainable. 
 
+Using [wrk](https://github.com/wg/wrk) I've tested the various mount options
+| Mount Type | Latency Ave | Req/Sec Avg | Pros                | Cons                                                          |
+|------------|-------------|-------------|---------------------|---------------------------------------------------------------|
+| Virtualbox | 15.42ms     | 325.80      | Things usually work |                                                               |
+| NFS        | 3.52ms      | 1.61K       |                     | Node and Ruby seem to have issues                             |
+| SMB        | 167.27ms    | 702.77      | Things usually work | Need to boot as admin from cmd, need to enter domain password |
 
 
 # Current thingamajig setup stuff
