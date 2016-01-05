@@ -29,3 +29,4 @@ Using [wrk](https://github.com/wg/wrk) I've tested the various mount options
 * [Cygwin + rsync clusterfuck](https://github.com/mitchellh/vagrant/issues/4073)
 * [Compass doesn't work correctly](http://stackoverflow.com/questions/20531194/compass-watch-does-not-regenerate-css-inside-vagrant)
 * [Errno::EPROTO: Protocol error - /vagrant/vendor /ruby](https://github.com/bundler/bundler/issues/3932) - with VB Mount
+* Need to change default Chef recipe for MySQL my.cnf to increase max_allow_packet to 16777216
