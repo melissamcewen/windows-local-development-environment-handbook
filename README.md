@@ -22,8 +22,7 @@ Using [wrk](https://github.com/wg/wrk) I've tested the various mount options
 # Current thingamajig setup stuff
 
 * this [Vagrant LAMP](https://github.com/r8/vagrant-lamp)
-* Windows Whatever, the one with the tiles stuff. 
-* like five million things like Cygwin and Putty
+* Windows 8.1 Pro
 
 # Issues
 * [Cygwin + rsync clusterfuck](https://github.com/mitchellh/vagrant/issues/4073)
