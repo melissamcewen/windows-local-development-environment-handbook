@@ -7,7 +7,11 @@ Well I do basically everything. I'll full stack. I work on PHP, Javascript (Angu
 # The Story So Far
 I started out with this [Vagrant LAMP](https://github.com/r8/vagrant-lamp), accessed via Putty. It seemed to be going OK, but it was slower than molasses. So someone on Stack Exchange or something told me nfs was a good solution. I switched to nfs and everything was so awesome and fast. I was so happy. I was mostly working on Drupal projects.
 
-Until the day I had some node.js and ruby stuff to do. All the sudden it was like every thing possible to go wrong went wrong. [This article](http://perrymitchell.net/article/npm-symlinks-through-vagrant-windows/) pretty much sums it up and recommends not using Windows (lol). I did some tricks and got things to work sometimes by doing crazy hacks like installing my node projects into my non-shared environment and putting them also in my shared folder but changing the execution path.  Blah blah, not very functional or sustainable. 
+Until the day I had some node.js and ruby stuff to do. All the sudden it was like every thing possible to go wrong went wrong. [This article](http://perrymitchell.net/article/npm-symlinks-through-vagrant-windows/) pretty much sums it up and recommends not using Windows (lol). I did some tricks and got things to work sometimes by doing crazy hacks like installing my node projects into my non-shared environment and putting them also in my shared folder but changing the execution path.  This is not very functional or sustainable. 
+
+I finally have given up on the idea of developing in a shared folder. I think it adds another layer of buginess and slowness that really puts a dent in actually doing development work. Vagrant does have a solution for this, which is rsync, but there are some bugs out there that make it very difficult to set up. I currently wrote my own rsyncing bash script to get files I need from shared and put them on the VM. Another potential solution would be to just SSH them. Without shared folders things function almost perfectly and it's also very fast.
+
+# Tests
 
 Using [wrk](https://github.com/wg/wrk) I've tested the various mount options
 
@@ -19,14 +23,17 @@ Using [wrk](https://github.com/wg/wrk) I've tested the various mount options
 | SMB        | 167.27ms    | 702.77      | Things usually work | Need to boot as admin from cmd, need to enter domain password |
 
 
+
 # Current thingamajig setup stuff
 
 * this [Vagrant LAMP](https://github.com/r8/vagrant-lamp)
 * Windows 8.1 Pro
+* rsync script I wrote
 
 # Issues
 * [Cygwin + rsync clusterfuck](https://github.com/mitchellh/vagrant/issues/4073)
 * [Compass doesn't work correctly](http://stackoverflow.com/questions/20531194/compass-watch-does-not-regenerate-css-inside-vagrant)
 * [Errno::EPROTO: Protocol error - /vagrant/vendor /ruby](https://github.com/bundler/bundler/issues/3932) - with VB Mount
 * Need to change default Chef recipe for MySQL my.cnf to increase max_allow_packet to 16777216
-* Honestly maybe the whole shared mounted folder thing isn't sustainable since that's causing most of my problems. I might try Vagrant w/o them.
+* Chef setup for Rsync 
+* add wrk stats for current setup
