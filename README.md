@@ -24,11 +24,11 @@ Using [wrk](https://github.com/wg/wrk) I've tested the various mount options
 
 
 
-# Current thingamajig setup stuff
+# Current Setup
 
 * this [Vagrant LAMP](https://github.com/r8/vagrant-lamp)
 * Windows 8.1 Pro
-* rsync script I wrote
+* lsyncd
 
 # Issues
 * [Cygwin + rsync clusterfuck](https://github.com/mitchellh/vagrant/issues/4073)
@@ -37,3 +37,12 @@ Using [wrk](https://github.com/wg/wrk) I've tested the various mount options
 * Need to change default Chef recipe for MySQL my.cnf to increase max_allow_packet to 16777216
 * Chef setup for Rsync 
 * add wrk stats for current setup
+
+# Ideal setup 
+I was planning to create a vagrant dist like this, but I am not going to be use Windows much longer (I was using it in a corporate environment). In addition many on my team received permission to dual boot their PCs with Linux, which if you can, is going to be better than having to develop in Windows.
+* Shared folders mounted with NFS
+* Applications NOT running in shared folder, synced with lsyncd
+* Bundler/Composer/RVM installed and configured correctly (an issue with the base Vagrant dist I used)
+
+# Articles
+* [Developing with VirtualBox and Vagrant on Windows](http://www.jeffgeerling.com/blog/2016/developing-virtualbox-and-vagrant-on-windows)
